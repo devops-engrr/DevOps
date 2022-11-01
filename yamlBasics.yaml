@@ -1,9 +1,16 @@
-#Yaml file basics
+#YAML file basics
 
-#Key Value Pairs
+#YAML Key Value Pairs
 Name: Anonymous
 Age: 25
 Gpa: 8.5
 Occupation: Engineer
 State: 'Alaska'
 AboutMe: "I am a software engineer"
+
+#YAML Lists
+Days:
+  - Mon
+  - Tue
+  - Wed
+Persons: [Mon, Tue, Wed]
