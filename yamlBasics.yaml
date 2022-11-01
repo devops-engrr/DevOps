@@ -21,7 +21,7 @@ Days:                                                   #Block Sequence indicate
   - Mon
   - Tue
   - Wed
-Days: [Mon, Tue, Wed]                                #Flow Sequence is written as comma separated list within square brackets
+Days: [Mon, Tue, Wed]                                   #Flow Sequence is written as comma separated list within square brackets
 
 #YAML Dictionary/Map
 #YAML Dictionaries are set of properties grouped together under an item
