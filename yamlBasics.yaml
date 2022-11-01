@@ -1,16 +1,99 @@
 #This file contains basic concepts of YAML file
 
 #YAML Key Value Pairs
+#Key and Value are separated by colon
+#We must have a space after colon differentiating the value
+#YAML supports different data types: Integer, Floating point numbers, Strings (without/single/double quotes), Boolean, Null values, Dates
+#Note for Strings: Quote strings when they have special characters like :, {}, | & []
 Name: Anonymous
 Age: 25
 Gpa: 8.5
 Occupation: Engineer
 State: 'Alaska'
 AboutMe: "I am a software engineer"
+Case: null
 
-#YAML Lists
-Days:
+#YAML List/Array
+#YAML list indeneted with dash
+#Dash indicates that it's element of an array
+#All members of list must be at same indentation level
+Days:                                                   #Block Sequence indicate each entry with a dash and space
   - Mon
   - Tue
   - Wed
-Persons: [Mon, Tue, Wed]
+Days: [Mon, Tue, Wed]                                #Flow Sequence is written as comma separated list within square brackets
+
+#YAML Dictionary/Map
+#YAML Dictionaries are set of properties grouped together under an item
+#YAML Dictionaries contain key value pairs
+Profile:
+  Name: Anonymous
+  Occupation: Engineer
+  Country: India
+  state: MH
+  
+#YAML Lists containing Dcitionaries
+Persons:
+  - Anonymous:
+      Age: 24
+      Occupation: Engineer
+      State: CA
+  - Alice:
+      Age: 25
+      Occupation: DevopsEngineer
+      State: LA
+  - Mike:
+      Age: 26
+      Occupation: DataEngineer
+      State: NY
+
+#YAML lists containing dictionaries containing lists
+Persons:
+  - Anonymous:
+      Age: 24
+      Occupation: Engineer
+      State: CA
+      Degrees:                                            #Block Sequence
+        - Bachelors
+        - Masters
+        - Phd
+  - Alice:
+      Age: 25
+      Occupation: DevopsEngineer
+      State: LA
+      Degrees: [Bachelors, Masters]                       #Flow Sequence
+  - Mike:
+      Age: 26
+      Occupation: DataEngineer
+      State: NY
+      Degrees:
+       - Masters  
+       
+#YAML Pipe
+#literal block
+#All new lines, indentation, extra spaces are preserved as it is (everything is printed/executed as it is after pipe)
+Profile:
+  Name: Anonymous
+  Occupation: Engineer
+  Country: India
+  state: MH
+  Address: |
+    378 ABC Street
+    Near Market Yard
+    123-456-7890
+
+#YAML Greater than Sign Notation
+#Reffered as folded block, it renders the whole txt as single line
+#All new lines will be replaced with a single space
+#Blank lines are converted to new line character
+Profile:
+  Name: Anonymous
+  Occupation: Engineer
+  Country: India
+  state: MH
+  AboutMe: >
+    I am good
+    Everthing is good.
+    
+#YAML Comments
+#Everything after # is treated as comment
