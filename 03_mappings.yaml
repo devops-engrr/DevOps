@@ -1,0 +1,51 @@
+#Mappings
+#Key: Value pair
+#Fn::FindInMap Intrinsic fucntion is used to retrive values in Map
+##returns the value corresponding to key in a two-level map
+##Parmaeters
+###Map Name
+###Top Level Key
+###Second Level Key
+###Return Value
+
+#Question: Create a mapping to select the instance type based on environments (dev or prod) for ec2 instance property & image id based on region.
+
+AWSTemplateFormatVersion: 2010-09-09
+#Parameters for the Template
+Parameters:
+  MyKeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Select the keypair
+  EnvironmentName:
+    Description: Select the environment
+    Type: String
+    Default: dev
+    AllowedValues: 
+      - dev
+      - prod
+#Created Mapping
+Mappings:
+  MyRegionMap:
+    us-east-2:
+      HVM64: ami-0cd3dfa4e37921765
+    us-west-1:
+      HVM64: ami-0ec6517f6edbf8875     
+  MyEnvironmentMap:
+    dev:
+      instanceType: t2.micro
+    prod:
+      instanceType: t2.small      
+#List of AWS Resources
+Resources:
+  MyVMInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !FindInMap
+        - MyRegionMap
+        - !Ref 'AWS::Region'
+        - HVM64
+      InstanceType: !FindInMap
+        - MyEnvironmentMap
+        - !Ref EnvironmentName
+        - instanceType
+      KeyName: !Ref MyKeyName
