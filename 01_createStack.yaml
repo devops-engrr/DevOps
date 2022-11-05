@@ -1,0 +1,8 @@
+#Create a simple EC2 instance
+AWSTemplateFormatVersion: 2010-09-09      #AWS Template Version (Optional)
+Resources:                                #List of AWS Resources we want to provision (one or more)
+  DevEC2Instance:                         #Resource Name, this must be unique across a template
+    Type: 'AWS::EC2::Instance'            #Resource Type
+    Properties:           
+      ImageId: ami-0cd3dfa4e3792164
+      InstanceType: t2.micro
