@@ -1,0 +1,18 @@
+#Pseudo Parameters are predefined by AWS CFN.
+#Some examples are defined below:
+
+#AWS::AccountId
+
+#AWS::NotificationARNs
+
+#AWS::NoValue
+
+#AWS::Partition
+
+#AWS::Region
+
+#AWS::StackId
+
+#AWS::StackName
+
+#AWS::URLSuffix
